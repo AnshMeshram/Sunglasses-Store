@@ -1,0 +1,16 @@
+
+.sidebar {
+    width: 18%; /* Adjust as needed */
+    position: fixed;
+    height: 100vh; /* Full viewport height */
+    border-right: 2px solid #e5e5e5;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    box-sizing: border-box; /* Include padding and border in width/height calculations */
+}
+
+

@@ -1,0 +1,40 @@
+/* Container for the navigation bar */
+.nav-container {
+    margin-left: 20rem;
+    display: flex;
+    border-bottom: 2px solid #f3f3f3;
+    justify-content: space-between; /* Distribute space between items */
+    align-items: center;
+    padding: 20px;
+    z-index: 999;
+}
+
+/* Style for the search input */
+.search-input {
+    padding: 12px;
+    border: none;
+    background: #f7f6f68e;
+    outline: none;
+    margin-right: 20px;
+    border-radius: 5px;
+    width: 50rem;
+}
+
+/* Container for profile icons and the Sign Up button */
+.profile-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for each icon */
+.nav-icons {
+    font-size: 1.5rem; /* Size of icons */
+    color: #000; /* Icon color; adjust as needed */
+    margin-left: 1rem; /* Space between icons */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.nav-icons:hover {
+    color: #f8a7a7; /* Change color on hover, optional */
+}
+
