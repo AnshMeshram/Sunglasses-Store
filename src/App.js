@@ -7,6 +7,7 @@ import Recommended from './Recommended/Rec';
 import './index.css';
 import { products as data } from './db/data'; // Ensure the correct import of the products data
 import SignUp from './Signup/Signup';
+import Footer from "./components/Footer";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -58,6 +59,7 @@ function App() {
           <Products results={result} />
         </>
       )}
+       <Footer />
     </div>
   );
 }
