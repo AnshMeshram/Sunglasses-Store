@@ -1,0 +1,104 @@
+.site-footer {
+    background: linear-gradient(90deg, #fff7c8 0%, #ec2323 100%);
+    color: #1c1c1c;
+    padding: 28px 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    /* Leave space for the fixed sidebar (18% width) so footer doesn't overlap */
+    margin-left: 18%;
+    width: calc(100% - 18%);
+  }
+  
+  .footer-container {
+    display: flex;
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: 1 1 220px;
+  }
+  
+  .footer-brand {
+    font-size: 1.25rem;
+    margin: 0 0 6px 0;
+    color: #000;
+  }
+  
+  .footer-desc {
+    margin: 0 0 8px 0;
+    color: #2b2b2b;
+    line-height: 1.35;
+  }
+  
+  .footer-copy {
+    margin-top: 10px;
+    color: #333333;
+    font-size: 0.9rem;
+  }
+  
+  .footer-title {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+  }
+  
+  .footer-item {
+    margin: 4px 0;
+    color: #222;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .social-link {
+    display: inline-block;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.04);
+    color: #111;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: transform 120ms ease, background-color 120ms ease;
+  }
+  
+  .social-link:hover {
+    transform: translateY(-2px);
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: 16px;
+    padding-top: 12px;
+    text-align: center;
+  }
+  
+  @media (max-width: 720px) {
+    .footer-container {
+      gap: 12px;
+    }
+    .footer-brand {
+      font-size: 1.1rem;
+    }
+    .social-links {
+      justify-content: flex-start;
+    }
+    /* On small screens the sidebar may collapse; remove footer offset */
+    .site-footer {
+      margin-left: 0;
+      width: 100%;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
+  
