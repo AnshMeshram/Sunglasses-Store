@@ -1,16 +1,35 @@
-# Getting Started with Create React App
+Sunglasses Store
+A simple and sleek online store for sunglasses built with modern web technologies.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Demo
+Check out the live app here: https://sunglasses-store.vercel.app/
 
-## Available Scripts
+Features
+Browse a collection of stylish sunglasses
 
-In the project directory, you can run:
+Clean and responsive user interface
 
-### `npm start`
+Easy navigation and quick product access
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Technology Stack
+React.js (or specify your front-end framework)
 
-Results:
+Deployed on Vercel
 
-https://www.youtube.com/watch?v=xc80MbRPgGY
+How to Run Locally
+Clone the repository
+git clone <repo-url>
+
+Install dependencies
+npm install or yarn install
+
+Start the development server
+npm start or yarn start
+
+Open http://localhost:3000 in your browser
+
+Contributions
+Contributions such as fixing bugs, improving UI, or adding features are welcome! Please open a pull request.
+
+License
+This project is licensed under the MIT License.
