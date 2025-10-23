@@ -1,5 +1,12 @@
-import React from "react";
+ 
 import "./Footer.css";
+
+ 
+const socialLinks = [
+  { name: "Instagram", url: "https://instagram.com" },
+  { name: "Facebook", url: "https://facebook.com" },
+  { name: "Twitter", url: "https://twitter.com" },
+];
 
 function Footer() {
   return (
@@ -10,9 +17,6 @@ function Footer() {
           <p className="footer-desc">
             Handpicked eyewear for every season. Stylish, protective, and made
             for you.
-          </p>
-          <p className="footer-copy">
-            © 2025 Alizay Ayesha. All rights reserved.
           </p>
         </div>
 
@@ -31,39 +35,28 @@ function Footer() {
         <div className="footer-right">
           <h5 className="footer-title">Follow</h5>
           <div className="social-links">
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="social-link"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="social-link"
-            >
-              Facebook
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className="social-link"
-            >
-              Twitter
-            </a>
+             
+            {socialLinks.map((link) => (
+              <a
+                key={link.name}  
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.name}
+                className="social-link"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <small>Designed by Alizay Ayesha • All rights reserved 2025</small>
+         
+        <small>
+          © 2025 Alizay Ayesha. Designed & Built with ❤️. All rights reserved.
+        </small>
       </div>
     </footer>
   );
