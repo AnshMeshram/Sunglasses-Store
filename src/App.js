@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedPrice, setSelectedPrice] = useState(null);
   const [query, setQuery] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -27,33 +28,59 @@ function App() {
 
   // Search and filter logic
   const handleInputChange = (event) => setQuery(event.target.value);
-  const handleChange = (event) => {
-    setSelectedCategory(event.target.value);
-    closeSidebar(); // Close sidebar after selection on mobile
-  };
   const handleClick = (event) => setSelectedCategory(event.target.value);
+  
+  const handleChange = (event) => {
+    if (event.target.name === 'newPrice') {
+      setSelectedPrice(event.target.value);
+    } else {
+      setSelectedCategory(event.target.value);
+    }
+    closeSidebar();
+  };
 
-  const filteredData = (products, selected, query) => {
+  const filteredData = (products, selected, query, priceRange) => {
     let filteredData = data;
+
+    // Filter by search query
     if (query) {
       filteredData = filteredData.filter((item) =>
         item.title.toLowerCase().includes(query.toLowerCase())
       );
     }
+
+    // Filter by category/color/company
     if (selected) {
       filteredData = filteredData.filter(
-        ({ category, color, company, newPrice, title }) =>
+        ({ category, color, company, title }) =>
           category === selected.toLowerCase() ||
           color === selected.toLowerCase() ||
           company === selected.toLowerCase() ||
-          newPrice === selected.toLowerCase() ||
           title.toLowerCase().includes(selected.toLowerCase())
       );
     }
+
+    // Filter by price range
+    if (priceRange) {
+      filteredData = filteredData.filter((item) => {
+        const price = parseFloat(item.newPrice);
+        switch (priceRange) {
+          case '0-50':
+            return price <= 50;
+          case '100-150':
+            return price >= 100 && price <= 150;
+          case '150+':
+            return price > 150;
+          default:
+            return true;
+        }
+      });
+    }
+
     return filteredData;
   };
 
-  const result = filteredData(data, selectedCategory, query);
+  const result = filteredData(data, selectedCategory, query, selectedPrice);
 
   return (
     <div>
@@ -75,7 +102,7 @@ function App() {
           </button>
 
           {/* Overlay for mobile */}
-    <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
+      <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
 
           <Nav query={query} handleInputChange={handleInputChange} />
           <Recommended handleClick={handleClick} />

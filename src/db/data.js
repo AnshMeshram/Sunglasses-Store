@@ -715,4 +715,21 @@ export const products = [
       },
     ],
   },
+  {
+    id: "010a",
+    company: "Dior",
+    color: "Brown",
+    reviews: 140,
+    prevPrice: 199.99,
+    title: "Punk Design 2.",
+    stars: 4.6,
+    newPrice: 169.99,
+    category: "Punk",
+    images: [
+      {
+        src: "https://i.pinimg.com/564x/aa/b3/26/aab326df7341fb8555c7316d282537cd.jpg",
+        description: "Brown sunglasses - on model",
+      },
+    ],
+  },
 ];
