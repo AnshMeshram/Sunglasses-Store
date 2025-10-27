@@ -2,6 +2,7 @@ import { useState } from "react";
 import logo from './logo.png'; // Relative path to the logo
 import './Signup.css'
 import Footer from "../components/Footer";
+import SignupNav from "./SignupNav";
 
 function Main() {
   const [username, setUsername] = useState("");
@@ -73,6 +74,7 @@ function Main() {
 
   return (
     <>
+      <SignupNav />
       <div className="signupContainer">
         <div className="header">
           <img src={logo} alt="Logo" className="logo" />

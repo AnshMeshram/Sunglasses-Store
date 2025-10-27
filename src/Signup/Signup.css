@@ -8,13 +8,16 @@
 .signupContainer {
     min-height: 100vh;
     margin: 0;
+    padding-top: 80px; /* Space for fixed navbar */
     background-image: linear-gradient(to right, #fff7c8 0%, #ec2323 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    padding: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Header wrapper */
@@ -178,7 +181,7 @@
 
 @media (max-width: 600px) {
     .signupContainer {
-        padding: 15px;
+        padding: 80px 15px 15px 15px;
     }
     
     .signupContainer h2 {
