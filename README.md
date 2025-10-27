@@ -149,7 +149,7 @@ sunglasses-store/
 - [ ] 🔔 Wishlist feature
 - [ ] 📊 Admin dashboard
 
-**[View all issues & feature requests →](https://github.com/yourusername/sunglasses-store/issues)**
+**[View all issues & feature requests →](https://github.com/AlizayAyesha/Sunglasses-Store/issues)**
 
 ---
 
