@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import Sidebar from "./Sidebar/Sidebar";
-import Nav from "./Nav/Nav";
-import Products from "./Products/Products";
-import Recommended from "./Recommended/Rec";
-import "./index.css";
-import { products as data } from "./db/data";
-import SignUp from "./Signup/Signup";
+import React, { useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Sidebar from './Sidebar/Sidebar';
+import Nav from './Nav/Nav';
+import Products from './Products/Products';
+import Recommended from './Recommended/Rec';
+import './index.css';
+import { products as data } from './db/data';
+import SignUp from './Signup/Signup';
 import Footer from "./components/Footer";
 
 function App() {
@@ -90,58 +90,37 @@ function App() {
   };
 
   const result = filteredData(data, selectedCategory, query, selectedPrice);
-  // persist cart to localStorage whenever it changes
-  useEffect(() => {
-    try {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    } catch (err) {
-      console.error("Failed to save cart to localStorage", err);
-    }
-  }, [cart]);
+  
+  // Check if we're on the signup page
+  const isSignupPage = location.pathname === '/signup';
 
-  const addToCart = (product) => {
-    if (!product || !product.id) return;
-    setCart((prev) => {
-      const exists = prev.find((p) => p.id === product.id);
-      if (exists) {
-        // toggle: remove if already in cart
-        return prev.filter((p) => p.id !== product.id);
-      }
-      return [...prev, product];
-    });
-  };
   return (
     <div>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={
+          <>
+            {/* Mobile Menu Toggle Button */}
+            <button 
+              className="menu-toggle" 
+              onClick={toggleSidebar}
+              aria-label="Toggle Menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            {/* Overlay for mobile */}
+            <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
+
+            <Nav query={query} handleInputChange={handleInputChange} />
+            <Recommended handleClick={handleClick} />
+            <Products results={result} />
+            <Footer />
+          </>
+        } />
       </Routes>
-      {(location.pathname !== "/signup" ||
-        location.pathname === "/signup/") && (
-        <>
-          {/* Mobile Menu Toggle Button */}
-          <button
-            className="menu-toggle"
-            onClick={toggleSidebar}
-            aria-label="Toggle Menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          {/* Overlay for mobile */}
-          <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
-
-          <Nav
-            query={query}
-            handleInputChange={handleInputChange}
-            cartCount={cart.length}
-          />
-          <Recommended handleClick={handleClick} />
-          <Products results={result} addToCart={addToCart} cartItems={cart} />
-          <Footer />
-        </>
-      )}
     </div>
   );
 }
