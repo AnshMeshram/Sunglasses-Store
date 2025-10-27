@@ -5,7 +5,7 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 import { MdShoppingCart } from "react-icons/md";
 import "./Nav.css";
 
-function Nav({ query, handleInputChange }) {
+function Nav({ query, handleInputChange, cartCount = 0 }) {
   return (
     <div className="nav-container">
       <input

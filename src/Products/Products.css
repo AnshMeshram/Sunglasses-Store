@@ -1,12 +1,16 @@
+/* Main container for all products */
 .product-card-container {
+    margin-left: 250px; /* ADD THIS - Match sidebar width */
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     padding: 2rem;
-    z-index: -2;
-    width: 70vw;
+    min-height: 100vh;
+    width: calc(100% - 250px); /* CHANGE THIS - Account for sidebar */
+    box-sizing: border-box; /* ADD THIS */
 }
 
+/* Individual product card */
 .product-card {
     width: 15rem;
     border: 2px solid #aa6363a2;
@@ -20,6 +24,11 @@
     background: #e1a68296;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(74, 5, 5, 0.829);
+    transition: transform 0.3s ease; /* ADD THIS for hover effect */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* ADD THIS for nice hover effect */
 }
 
 .product-card-image {
@@ -63,5 +72,39 @@
 .bag-icon {
     font-size: 1.5rem;
     margin-top: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease; /* ADD THIS */
 }
- 
+
+.bag-icon:hover {
+    color: #ff8366; /* ADD THIS - matches your sidebar gradient */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .product-card-container {
+        margin-left: 0; /* Remove margin on mobile */
+        width: 100%; /* Full width on mobile */
+        justify-content: center; /* Center cards on mobile */
+    }
+    
+    .product-card {
+        width: calc(50% - 20px); /* Two cards per row on mobile */
+        min-width: 150px;
+    }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .product-card-container {
+        margin-left: 200px; /* Match tablet sidebar width */
+        width: calc(100% - 200px);
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%; /* One card per row on small screens */
+    }
+}
