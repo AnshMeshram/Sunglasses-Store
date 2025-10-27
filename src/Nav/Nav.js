@@ -5,7 +5,7 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 import { MdShoppingCart } from "react-icons/md";
 import "./Nav.css";
 
-function Nav({ query, handleInputChange }) {
+function Nav({ query, handleInputChange, cartCount = 0 }) {
   return (
     <div className="nav-container">
       <input
@@ -22,7 +22,7 @@ function Nav({ query, handleInputChange }) {
         <a href="#">
           <MdShoppingCart className="nav-icons" />
         </a>
-        <Link to="/SignUp/SignUp" className="profile-link">
+        <Link to="/signup" className="profile-link">
           <HiOutlineUserCircle className="nav-icons" />
         </Link>
       </div>
