@@ -1,4 +1,3 @@
-```markdown
 # 🕶️ Sunglasses Store
 
 <div align="center">
