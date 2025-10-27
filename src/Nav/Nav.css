@@ -1,23 +1,25 @@
 /* Container for the navigation bar */
 .nav-container {
-  margin-left: 20rem;
-  display: flex;
-  border-bottom: 2px solid #f3f3f3;
-  justify-content: space-between; /* Distribute space between items */
-  align-items: center;
-  padding: 20px;
-  z-index: 999;
+    margin-left: 250px; /* Match sidebar width exactly */
+    display: flex;
+    border-bottom: 2px solid #f3f3f3;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 999;
+    position: relative; /* Add this */
 }
 
 /* Style for the search input */
 .search-input {
-  padding: 12px;
-  border: none;
-  background: #f7f6f68e;
-  outline: none;
-  margin-right: 20px;
-  border-radius: 5px;
-  width: 50rem;
+    padding: 12px;
+    border: none;
+    background: #f7f6f68e;
+    outline: none;
+    margin-right: 20px;
+    border-radius: 5px;
+    width: 50rem;
+    max-width: 100%; /* Add this for responsiveness */
 }
 
 /* Container for profile icons and the Sign Up button */
@@ -28,35 +30,30 @@
 
 /* Style for each icon */
 .nav-icons {
-  font-size: 1.5rem; /* Size of icons */
-  color: #000; /* Icon color; adjust as needed */
-  margin-left: 1rem; /* Space between icons */
-  text-decoration: none; /* Remove underline from links */
+    font-size: 1.5rem;
+    color: #000;
+    margin-left: 1rem;
+    text-decoration: none;
 }
 
 .nav-icons:hover {
-  color: #f8a7a7; /* Change color on hover, optional */
+    color: #f8a7a7;
 }
 
-/* Cart badge wrapper */
-.cart-wrapper {
-  position: relative;
-  display: inline-block;
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nav-container {
+        margin-left: 0; /* Remove margin on mobile */
+    }
+    
+    .search-input {
+        width: 100%;
+    }
 }
 
-.cart-badge {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  background: #ff4d4f;
-  color: #fff;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-/* Bag icon when item is in cart (small visual cue) */
-.bag-icon.in-cart {
-  color: #ff4d4f;
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .nav-container {
+        margin-left: 200px; /* Match tablet sidebar width */
+    }
 }

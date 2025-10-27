@@ -1,10 +1,17 @@
-
-# 🕶️ Sunglasses Store
+# 🕶️ Sunglasses Store  
+### “A modern and minimal e-commerce experience for eyewear lovers.”
 
 A **simple and sleek online store** for stylish sunglasses, built with modern web technologies.  
 Experience effortless browsing and a clean, responsive user interface.
 
 🌐 **Live Demo:** [sunglasses-store.vercel.app](https://sunglasses-store.vercel.app/)
+
+---
+
+## 🖼️ Preview
+
+![App Screenshot](./screenshot.png)
+*A clean and modern sunglasses shopping interface.*
 
 ---
 
@@ -27,6 +34,16 @@ Experience effortless browsing and a clean, responsive user interface.
 
 ---
 
+## ⚙️ Prerequisites
+
+Before running the project, make sure you have:
+
+- 🟢 **Node.js v16+**
+- 🧰 **Git** installed
+- 💻 A code editor like **VS Code**
+
+---
+
 ## 💻 Getting Started
 
 Follow these steps to run the project locally:
@@ -35,52 +52,3 @@ Follow these steps to run the project locally:
 ```bash
 git clone https://github.com/yourusername/sunglasses-store.git
 cd sunglasses-store
-````
-
-### 2. Install dependencies
-
-```bash
-npm install
-# or
-yarn install
-```
-
-### 3. Start the development server
-
-```bash
-npm start
-# or
-yarn start
-```
-
-### 4. Open the app
-
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 🤝 Contributing
-
-Contributions are always welcome!
-Whether it’s fixing bugs, improving the UI, or adding new features — your help is appreciated.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](./LICENSE).
-
----
-
-### 🕶️ Made with passion and style
-
-> “Good sunglasses are more than just protection — they’re a statement.”
-
----
-
