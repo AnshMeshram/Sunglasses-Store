@@ -1,12 +1,13 @@
 /* Container for the navigation bar */
 .nav-container {
-    margin-left: 20rem;
+    margin-left: 250px; /* Match sidebar width exactly */
     display: flex;
     border-bottom: 2px solid #f3f3f3;
-    justify-content: space-between; /* Distribute space between items */
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     z-index: 999;
+    position: relative; /* Add this */
 }
 
 /* Style for the search input */
@@ -18,23 +19,41 @@
     margin-right: 20px;
     border-radius: 5px;
     width: 50rem;
+    max-width: 100%; /* Add this for responsiveness */
 }
 
 /* Container for profile icons and the Sign Up button */
 .profile-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 /* Style for each icon */
 .nav-icons {
-    font-size: 1.5rem; /* Size of icons */
-    color: #000; /* Icon color; adjust as needed */
-    margin-left: 1rem; /* Space between icons */
-    text-decoration: none; /* Remove underline from links */
+    font-size: 1.5rem;
+    color: #000;
+    margin-left: 1rem;
+    text-decoration: none;
 }
 
 .nav-icons:hover {
-    color: #f8a7a7; /* Change color on hover, optional */
+    color: #f8a7a7;
 }
 
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nav-container {
+        margin-left: 0; /* Remove margin on mobile */
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .nav-container {
+        margin-left: 200px; /* Match tablet sidebar width */
+    }
+}

@@ -24,6 +24,13 @@
 
 ---
 
+## 🖼️ Preview
+
+![App Screenshot](./screenshot.png)
+*A clean and modern sunglasses shopping interface.*
+
+---
+
 ## ✨ Features
 
 <table>
