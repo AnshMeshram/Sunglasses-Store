@@ -1,4 +1,4 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar/Sidebar';
 import Nav from './Nav/Nav';
@@ -81,33 +81,37 @@ function App() {
   };
 
   const result = filteredData(data, selectedCategory, query, selectedPrice);
+  
+  // Check if we're on the signup page
+  const isSignupPage = location.pathname === '/signup';
+
   return (
     <div>
       <Routes>
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/" element={
+          <>
+            {/* Mobile Menu Toggle Button */}
+            <button 
+              className="menu-toggle" 
+              onClick={toggleSidebar}
+              aria-label="Toggle Menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+
+            {/* Overlay for mobile */}
+            <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
+
+            <Nav query={query} handleInputChange={handleInputChange} />
+            <Recommended handleClick={handleClick} />
+            <Products results={result} />
+            <Footer />
+          </>
+        } />
       </Routes>
-      {(location.pathname !== '/signup' || location.pathname === '/signup/') && (
-        <>
-          {/* Mobile Menu Toggle Button */}
-          <button 
-            className="menu-toggle" 
-            onClick={toggleSidebar}
-            aria-label="Toggle Menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          {/* Overlay for mobile */}
-          <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
-
-          <Nav query={query} handleInputChange={handleInputChange} />
-          <Recommended handleClick={handleClick} />
-          <Products results={result} />
-          <Footer />
-        </>
-      )}
     </div>
   );
 }

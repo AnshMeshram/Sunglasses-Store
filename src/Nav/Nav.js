@@ -22,7 +22,7 @@ function Nav({ query, handleInputChange }) {
         <a href="#">
           <MdShoppingCart className="nav-icons" />
         </a>
-        <Link to="/SignUp/SignUp" className="profile-link">
+        <Link to="/signup" className="profile-link">
           <HiOutlineUserCircle className="nav-icons" />
         </Link>
       </div>
