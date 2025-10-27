@@ -192,8 +192,8 @@ Contributions are what make the open-source community amazing! Any contributions
 
 Found a bug or have an idea?
 
-- **[Report a Bug](https://github.com/yourusername/sunglasses-store/issues/new?labels=bug&template=bug_report.md)**
-- **[Request a Feature](https://github.com/yourusername/sunglasses-store/issues/new?labels=enhancement&template=feature_request.md)**
+- **[Report a Bug](https://github.com/AlizayAyesha/Sunglasses-Store/issues/new?labels=bug&template=bug_report.md)**
+- **[Request a Feature](https://github.com/AlizayAyesha/Sunglasses-Store/issues/new?labels=enhancement&template=feature_request.md)**
 
 ---
 
