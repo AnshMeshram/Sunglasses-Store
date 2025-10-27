@@ -12,8 +12,17 @@ import Footer from "./components/Footer";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [cart, setCart] = useState(() => {
+    try {
+      const raw = localStorage.getItem("cart");
+      return raw ? JSON.parse(raw) : [];
+    } catch (err) {
+      console.error("Failed to read cart from localStorage", err);
+      return [];
+    }
+  });
 
   const location = useLocation();
 
@@ -29,9 +38,9 @@ function App() {
   // Search and filter logic
   const handleInputChange = (event) => setQuery(event.target.value);
   const handleClick = (event) => setSelectedCategory(event.target.value);
-  
+
   const handleChange = (event) => {
-    if (event.target.name === 'newPrice') {
+    if (event.target.name === "newPrice") {
       setSelectedPrice(event.target.value);
     } else {
       setSelectedCategory(event.target.value);
@@ -65,11 +74,11 @@ function App() {
       filteredData = filteredData.filter((item) => {
         const price = parseFloat(item.newPrice);
         switch (priceRange) {
-          case '0-50':
+          case "0-50":
             return price <= 50;
-          case '100-150':
+          case "100-150":
             return price >= 100 && price <= 150;
-          case '150+':
+          case "150+":
             return price > 150;
           default:
             return true;
