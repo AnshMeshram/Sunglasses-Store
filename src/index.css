@@ -131,7 +131,6 @@ li {
 footer {
   margin-left: 250px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
   text-align: center;
   transition: margin-left 0.3s ease;
 }
@@ -227,6 +226,10 @@ footer {
   }
 
   .card {
+    padding: 15px;
+  }
+  
+  footer {
     padding: 15px;
   }
 }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logo from './logo.png'; // Relative path to the logo
 import './Signup.css'
+import Footer from "../components/Footer";
 
 function Main() {
   const [username, setUsername] = useState("");
@@ -71,56 +72,59 @@ function Main() {
   }
 
   return (
-    <div className="signupContainer">
-      <header className="header">
-         <img src={logo} alt="Logo" className="logo" />
-      </header>
+    <>
+      <div className="signupContainer">
+        <div className="header">
+          <img src={logo} alt="Logo" className="logo" />
+        </div>
 
-      <h2>Sign Up</h2>
-      <div className="card">
-        <form>
-          <input
-            type="text"
-            placeholder="Name"
-            style={{ borderColor: userColor }}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <p className="error">{errorUserName}</p>
+        <h2>Sign Up</h2>
+        <div className="card">
+          <form>
+            <input
+              type="text"
+              placeholder="Name"
+              style={{ borderColor: userColor }}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <p className="error">{errorUserName}</p>
 
-          <input
-            type="text"
-            placeholder="Email"
-            style={{ borderColor: emailColor }}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <p className="error">{errorEmail}</p>
+            <input
+              type="text"
+              placeholder="Email"
+              style={{ borderColor: emailColor }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <p className="error">{errorEmail}</p>
 
-          <input
-            type="password"
-            placeholder="Password"
-            style={{ borderColor: passwordColor }}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <p className="error">{errorPassword}</p>
+            <input
+              type="password"
+              placeholder="Password"
+              style={{ borderColor: passwordColor }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <p className="error">{errorPassword}</p>
 
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            style={{ borderColor: confirmPasswordColor }}
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          <p className="error">{errorConfirmPassword}</p>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              style={{ borderColor: confirmPasswordColor }}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <p className="error">{errorConfirmPassword}</p>
 
-          <button className="submit-btn" onClick={validate}>
-            Submit
-          </button>
-        </form>
+            <button className="submit-btn" onClick={validate}>
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+      <Footer variant="overlay" />
+    </>
   );
 }
 
