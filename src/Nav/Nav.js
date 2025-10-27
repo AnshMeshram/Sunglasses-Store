@@ -19,13 +19,10 @@ function Nav({ query, handleInputChange, cartCount = 0 }) {
         <a href="#">
           <FaHeart className="nav-icons" />
         </a>
-        <div className="cart-wrapper">
-          <a href="#">
-            <MdShoppingCart className="nav-icons" />
-          </a>
-          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-        </div>
-        <Link to="/SignUp/SignUp" className="profile-link">
+        <a href="#">
+          <MdShoppingCart className="nav-icons" />
+        </a>
+        <Link to="/signup" className="profile-link">
           <HiOutlineUserCircle className="nav-icons" />
         </Link>
       </div>
