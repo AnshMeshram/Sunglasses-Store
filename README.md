@@ -211,7 +211,7 @@ MIT License - Free to use for personal and commercial projects
 
 **Your Name**
 
-- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
+- 🐙 GitHub: [@yourusername](https://github.com/AlizayAyesha)
 - 💼 LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
 - 🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)
 - 🌐 Portfolio: [yourwebsite.com](https://yourwebsite.com)
@@ -231,7 +231,7 @@ If you found this project helpful:
 
 ## 🙏 Acknowledgments
 
-- Thanks to all [contributors](https://github.com/yourusername/sunglasses-store/graphs/contributors)
+- Thanks to all [contributors](https://github.com/AlizayAyesha/Sunglasses-Store/graphs/contributors)
 - Inspired by modern e-commerce designs
 - Icons from various open-source projects
 - Built with ❤️ and React
