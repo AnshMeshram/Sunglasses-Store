@@ -81,14 +81,12 @@ function App() {
   };
 
   const result = filteredData(data, selectedCategory, query, selectedPrice);
-
   return (
     <div>
       <Routes>
-        <Route path="/SignUp/SignUp" element={<SignUp />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
-
-      {location.pathname !== '/SignUp/SignUp' && (
+      {(location.pathname !== '/signup' || location.pathname === '/signup/') && (
         <>
           {/* Mobile Menu Toggle Button */}
           <button 
@@ -102,14 +100,14 @@ function App() {
           </button>
 
           {/* Overlay for mobile */}
-      <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
+          <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
 
           <Nav query={query} handleInputChange={handleInputChange} />
           <Recommended handleClick={handleClick} />
           <Products results={result} />
+          <Footer />
         </>
       )}
-      <Footer />
     </div>
   );
 }
