@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    z-index: 999;
+    z-index: 0;
     position: relative; /* Add this */
 }
 
@@ -20,12 +20,14 @@
     border-radius: 5px;
     width: 50rem;
     max-width: 100%; /* Add this for responsiveness */
+    height : 40px;
+    max-width: 500px;
 }
 
 /* Container for profile icons and the Sign Up button */
 .profile-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 /* Style for each icon */
@@ -43,7 +45,7 @@
 /* Mobile styles */
 @media (max-width: 768px) {
     .nav-container {
-        margin-left: 0; /* Remove margin on mobile */
+        margin-left: 15vw; /* Remove margin on mobile */
     }
     
     .search-input {

@@ -128,7 +128,6 @@ function App() {
             <span></span>
             <span></span>
           </button>
-
           {/* Overlay for mobile */}
           <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
 
