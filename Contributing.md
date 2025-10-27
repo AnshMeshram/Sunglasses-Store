@@ -16,7 +16,8 @@ Let’s build something stylish together! 😎
 5. [Commit Message Convention](#-commit-message-convention)
 6. [Pull Request Process](#-pull-request-process)
 7. [Community Guidelines](#-community-guidelines)
-8. [How to Contribute in Open Source](#-how-to-contribute-in-open-source)
+8. [Code of Conduct](#-code-of-conduct)
+9. [How to Contribute in Open Source](#-how-to-contribute-in-open-source)
 
 ---
 
@@ -139,6 +140,20 @@ We value collaboration and kindness. Please:
 - Support and encourage new contributors.  
 
 Together, we can make this project shine! 🌟  
+
+---
+
+## 📋 Code of Conduct
+
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms. We are committed to providing a welcoming and inspiring community for all and expect our code of conduct to be honored. Anyone who violates this code of conduct may be banned from the community.
+
+Our community is committed to:
+- Creating a safe and inclusive environment for everyone
+- Treating all community members with respect and dignity
+- Encouraging diverse perspectives and constructive feedback
+- Maintaining professional and courteous communication
+
+Please read our full [Code of Conduct](CODE_OF_CONDUCT.md) for detailed guidelines and enforcement procedures.
 
 ---
 
