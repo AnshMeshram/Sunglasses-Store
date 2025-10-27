@@ -24,8 +24,8 @@
 
 /* Container for profile icons and the Sign Up button */
 .profile-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 /* Style for each icon */
