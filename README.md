@@ -1,3 +1,4 @@
+```markdown
 # 🕶️ Sunglasses Store
 
 <div align="center">
@@ -5,10 +6,12 @@
 **A simple and sleek online store for stylish sunglasses, built with modern web technologies.**  
 *Experience effortless browsing and a clean, responsive user interface.*
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-00C7B7?style=for-the-badge)](https://sunglasses-store.vercel.app/)
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/sunglasses-store?style=for-the-badge)](https://github.com/yourusername/sunglasses-store/stargazers)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](./LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)](http://makeapullrequest.com)
+🌐 **[Live Demo](https://sunglasses-store.vercel.app/)**
+
+[![GitHub Stars](https://img.shields.io/github/stars/yourusername/sunglasses-store?style=flat-square)](https://github.com/yourusername/sunglasses-store/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/yourusername/sunglasses-store?style=flat-square)](https://github.com/yourusername/sunglasses-store/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/yourusername/sunglasses-store?style=flat-square)](https://github.com/yourusername/sunglasses-store/issues)
+[![License](https://img.shields.io/github/license/yourusername/sunglasses-store?style=flat-square)](./LICENSE)
 
 </div>
 
@@ -16,7 +19,7 @@
 
 ## 📸 Preview
 
-> **[🌐 Live Demo](https://sunglasses-store.vercel.app/)** | Experience the store in action
+**[🌐 View Live Demo →](https://sunglasses-store.vercel.app/)**
 
 ---
 
@@ -49,10 +52,12 @@
 
 ## 🧰 Tech Stack
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+| Technology | Purpose |
+|------------|---------|
+| ⚛️ **React.js** | Front-end framework |
+| 🎨 **CSS3 / Tailwind** | Styling & design |
+| 🚀 **Vercel** | Deployment & hosting |
+| 📦 **npm / yarn** | Package management |
 
 <details>
 <summary><b>📦 View All Dependencies</b></summary>
@@ -76,8 +81,10 @@
 
 ### Prerequisites
 
-- Node.js v16+ 
-- npm v7+ or yarn
+```bash
+Node.js v16+ 
+npm v7+ or yarn
+```
 
 ### Installation
 
@@ -90,6 +97,8 @@ cd sunglasses-store
 
 # Install dependencies
 npm install
+# or
+yarn install
 ```
 
 ### 🏃‍♂️ Running Locally
@@ -105,7 +114,7 @@ npm run build
 npm test
 ```
 
-The app will be available at **[http://localhost:3000](http://localhost:3000)** 🎉
+The app will be available at **http://localhost:3000** 🎉
 
 ---
 
@@ -137,8 +146,9 @@ sunglasses-store/
 - [ ] ⭐ Product reviews & ratings
 - [ ] 🌗 Dark mode toggle
 - [ ] 🔔 Wishlist feature
+- [ ] 📊 Admin dashboard
 
-*See the [open issues](https://github.com/yourusername/sunglasses-store/issues) for proposed features.*
+**[View all issues & feature requests →](https://github.com/yourusername/sunglasses-store/issues)**
 
 ---
 
@@ -149,9 +159,18 @@ Contributions are what make the open-source community amazing! Any contributions
 ### How to Contribute
 
 1. **Fork** the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. Commit your Changes
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
+4. Push to the Branch
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
 5. Open a **Pull Request**
 
 <details>
@@ -162,6 +181,7 @@ Contributions are what make the open-source community amazing! Any contributions
 - Add tests for new features
 - Update documentation as needed
 - Ensure all tests pass before submitting PR
+- Be respectful and constructive in discussions
 
 </details>
 
@@ -169,18 +189,18 @@ Contributions are what make the open-source community amazing! Any contributions
 
 ## 🐛 Bug Reports & Feature Requests
 
-Found a bug or have an idea? 
+Found a bug or have an idea?
 
-**[Report Bug](https://github.com/yourusername/sunglasses-store/issues/new?labels=bug)** · **[Request Feature](https://github.com/yourusername/sunglasses-store/issues/new?labels=enhancement)**
+- **[Report a Bug](https://github.com/yourusername/sunglasses-store/issues/new?labels=bug&template=bug_report.md)**
+- **[Request a Feature](https://github.com/yourusername/sunglasses-store/issues/new?labels=enhancement&template=feature_request.md)**
 
 ---
 
-## 📊 GitHub Stats
+## 📊 Project Stats
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yourusername/sunglasses-store)
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/sunglasses-store)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/sunglasses-store)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/yourusername/sunglasses-store)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yourusername/sunglasses-store?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/sunglasses-store?style=flat-square)
+![Code size](https://img.shields.io/github/languages/code-size/yourusername/sunglasses-store?style=flat-square)
 
 ---
 
@@ -188,32 +208,39 @@ Found a bug or have an idea?
 
 This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
 
+```
+MIT License - Free to use for personal and commercial projects
+```
+
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Connect
 
 **Your Name**
 
-[![GitHub](https://img.shields.io/badge/GitHub-@yourusername-181717?style=flat&logo=github)](https://github.com/yourusername)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/yourprofile)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=flat&logo=twitter)](https://twitter.com/yourhandle)
+- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
+- 💼 LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+- 🐦 Twitter: [@yourhandle](https://twitter.com/yourhandle)
+- 🌐 Portfolio: [yourwebsite.com](https://yourwebsite.com)
 
 ---
 
-## 💖 Support
+## 💖 Support This Project
 
 If you found this project helpful:
 
-⭐ **Star this repository**  
-🐛 **Report issues**  
-🤝 **Contribute code**
+- ⭐ Star this repository
+- 🐛 Report issues
+- 🤝 Contribute code
+- 📢 Share with others
 
 ---
 
 ## 🙏 Acknowledgments
 
-- Thanks to all contributors
+- Thanks to all [contributors](https://github.com/yourusername/sunglasses-store/graphs/contributors)
 - Inspired by modern e-commerce designs
+- Icons from various open-source projects
 - Built with ❤️ and React
 
 ---
