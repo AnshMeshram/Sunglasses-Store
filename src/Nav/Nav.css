@@ -7,7 +7,8 @@
     align-items: center;
     padding: 20px;
     z-index: 999;
-    position: relative; /* Add this */
+    position: relative;
+    background-color: #fff;
 }
 
 /* Style for the search input */
@@ -18,42 +19,126 @@
     outline: none;
     margin-right: 20px;
     border-radius: 5px;
-    width: 50rem;
-    max-width: 100%; /* Add this for responsiveness */
+    width: 100%;
+    max-width: 50rem;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.search-input:focus {
+    background: #efefef;
+    box-shadow: 0 0 5px rgba(255, 131, 102, 0.3);
 }
 
 /* Container for profile icons and the Sign Up button */
 .profile-container {
     display: flex;
     align-items: center;
+    gap: 1rem;
+    flex-shrink: 0; /* Prevent icons from shrinking */
 }
 
 /* Style for each icon */
 .nav-icons {
     font-size: 1.5rem;
     color: #000;
-    margin-left: 1rem;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .nav-icons:hover {
     color: #f8a7a7;
 }
 
-/* Mobile styles */
+/* Cart badge wrapper */
+.cart-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: #ff4d4f;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 18px;
+    text-align: center;
+}
+
+/* Bag icon when item is in cart */
+.bag-icon.in-cart {
+    color: #ff4d4f;
+}
+
+/* Tablet styles (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .nav-container {
+        margin-left: 200px; /* Match tablet sidebar width */
+        padding: 15px;
+    }
+    
+    .search-input {
+        max-width: 30rem;
+        font-size: 0.95rem;
+    }
+    
+    .nav-icons {
+        font-size: 1.3rem;
+    }
+}
+
+/* Mobile styles (up to 768px) */
 @media (max-width: 768px) {
     .nav-container {
-        margin-left: 0; /* Remove margin on mobile */
+        margin-left: 0; /* Remove margin when sidebar is hidden/toggled */
+        padding: 15px 10px;
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        gap: 10px;
     }
     
     .search-input {
         width: 100%;
+        max-width: 100%;
+        margin-right: 0;
+        font-size: 0.9rem;
+        order: 2; /* Move search bar below icons if needed */
+    }
+    
+    .profile-container {
+        order: 1;
+        gap: 0.8rem;
+    }
+    
+    .nav-icons {
+        font-size: 1.4rem;
     }
 }
 
-/* Tablet styles */
-@media (max-width: 1024px) and (min-width: 769px) {
+/* Small mobile (up to 480px) */
+@media (max-width: 480px) {
     .nav-container {
-        margin-left: 200px; /* Match tablet sidebar width */
+        padding: 12px 8px;
+    }
+    
+    .search-input {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .nav-icons {
+        font-size: 1.2rem;
+    }
+    
+    .profile-container {
+        gap: 0.6rem;
     }
 }
