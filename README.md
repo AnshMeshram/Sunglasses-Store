@@ -195,14 +195,6 @@ Found a bug or have an idea?
 
 ---
 
-## 📊 Project Stats
-
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yourusername/sunglasses-store?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/sunglasses-store?style=flat-square)
-![Code size](https://img.shields.io/github/languages/code-size/yourusername/sunglasses-store?style=flat-square)
-
----
-
 ## 📄 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
@@ -250,7 +242,4 @@ If you found this project helpful:
 
 > *"Good sunglasses are more than just protection — they're a statement."*
 
-**[⬆ Back to Top](#-sunglasses-store)**
-
 </div>
-```
