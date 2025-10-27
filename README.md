@@ -19,6 +19,8 @@
 ## 📸 Preview
 
 **[🌐 View Live Demo →](https://sunglasses-store.vercel.app/)**
+![image](sunglasses-store.jpg)
+
 
 ---
 
