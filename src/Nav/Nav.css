@@ -99,30 +99,56 @@
     transform: scale(1.1);
 }
 
-.cart-count {
+/* Cart button specific styles */
+.cart-button {
+    position: relative;
+}
+
+.cart-badge {
     position: absolute;
     top: 4px;
     right: 4px;
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     border-radius: 50%;
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     font-size: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    animation: bounce 2s infinite;
+    padding: 0 5px;
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
+    animation: badgePop 0.3s ease-out;
+    z-index: 10;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: scale(1);
+@keyframes badgePop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
     }
     50% {
-        transform: scale(1.15);
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cart-badge[role="status"] {
+    animation: none;
+}
+
+/* Pulse animation for active cart */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
+    }
+    50% {
+        box-shadow: 0 2px 16px rgba(231, 76, 60, 0.8);
     }
 }
 

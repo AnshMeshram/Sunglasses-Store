@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar/Sidebar';
 import Nav from './Nav/Nav';
@@ -25,6 +25,26 @@ function App() {
   });
 
   const location = useLocation();
+
+  // Sync cart across browser tabs
+  useEffect(() => {
+    const handleStorageChange = (e) => {
+      if (e.key === "cart") {
+        try {
+          const newCart = e.newValue ? JSON.parse(e.newValue) : [];
+          setCart(newCart);
+        } catch (err) {
+          console.error("Failed to parse cart from storage event", err);
+        }
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   // Add item to cart
   const addToCart = (product) => {

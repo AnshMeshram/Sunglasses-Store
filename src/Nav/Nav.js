@@ -18,10 +18,14 @@ function Nav({ query, handleInputChange, cartCount = 0 }) {
       <div className="profile-container">
         <button className="nav-icon-button" aria-label="Favorites">
           <FaHeart className="nav-icons" />
-          {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
         </button>
-        <button className="nav-icon-button" aria-label="Shopping Cart">
+        <button className="nav-icon-button cart-button" aria-label="Shopping Cart">
           <MdShoppingCart className="nav-icons" />
+          {cartCount > 0 && (
+            <span className="cart-badge" role="status" aria-live="polite">
+              {cartCount}
+            </span>
+          )}
         </button>
         <Link to="/signup" className="profile-link">
           <HiOutlineUserCircle className="nav-icons" />
