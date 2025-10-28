@@ -6,22 +6,33 @@
 }
 
 .signupContainer {
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding-top: 80px; /* Space for fixed navbar */
     background-image: linear-gradient(to right, #fff7c8 0%, #ec2323 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-
+/* Header wrapper */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+    width: 100%;
+}
 
 /* Header styling */
-h2 {
-    top: 2rem;
-    font-size: 7rem;
+.signupContainer h2 {
+    font-size: 4rem;
     color: rgb(255, 255, 255);
     font-family: sans-serif;
     font-weight: bold;
@@ -33,102 +44,183 @@ h2 {
 /* Logo styling */
 .logo {
     z-index: 1;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     position: absolute;
-    left:400px;
-    transform: translateY(-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: bounce 4s infinite;
 }
 
-
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+        transform: translate(-50%, -50%) translateY(0);
     }
     30% {
-        transform: translateY(-20px);
+        transform: translate(-50%, -50%) translateY(-20px);
     }
     60% {
-        transform: translateY(-15px);
+        transform: translate(-50%, -50%) translateY(-15px);
     }
 }
+
 /* Card Container */
-.card {
+.signupContainer .card {
   background-image: url('./img/bg1.png');
-  background-size: contain; /* Ensures the image fits within the card */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-position: center; /* Centers the image within the card */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 80%;
-  height: 50rem;
-  box-shadow: 0.5px 0.5px 1px 1px rgb(255, 255, 223);
+  width: 90%;
+  max-width: 900px;
+  min-height: 450px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 
 
 /* Form within Card */
-.card form {
+.signupContainer .card form {
   display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
     width: 100%;
-    padding: 20px;
+    padding: 30px;
     color: #fff;
 }
 
 /* Input Fields */
-input {
-    padding: 10px;
-    margin: 5px 0; /* Adjusted vertical margin */
-    width: 100%; /* Full width of the card */
-    max-width: 100%; /* Prevents input from growing beyond card width */
+.signupContainer input {
+    padding: 12px;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #dc6a6a;
+    border-bottom: 2px solid #dc6a6a;
     color: #fff;
     outline: none;
-    font-size: 1em; /* Adjust font size for readability */
+    font-size: 1em;
 }
 
-input:focus {
+.signupContainer input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.signupContainer input:focus {
     color: #fff;
-    border-bottom-color: #ea6967; /* Change border color on focus */
-    transition: border-bottom-color 0.3s ease; /* Smooth transition effect */
+    border-bottom-color: #ea6967;
+    transition: border-bottom-color 0.3s ease;
 }
 
 /* Error Messages */
-.error {
-    color: red;
-    margin: 0;
-    font-size: 0.875em; /* Slightly smaller font size for error messages */
+.signupContainer .error {
+    color: #ffeb3b;
+    margin: 0 0 10px 0;
+    font-size: 0.85em;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    min-height: 20px;
 }
 
 /* Submit Button */
-.submit-btn {
-    width: 100%; /* Full width of the card */
-    padding: 10px;
+.signupContainer .submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
     background-color: #ea6967f2;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1em; /* Adjust font size for readability */
-    transition: background-color 0.3s ease; /* Smooth transition effect */
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.submit-btn:hover {
-    background-color: #ea6967; /* Darker background on hover */
+.signupContainer .submit-btn:hover {
+    background-color: #ea6967;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive styling for the logo */
+/* Responsive styling */
 @media (max-width: 1200px) {
+    .signupContainer h2 {
+        font-size: 3.5rem;
+    }
+    
     .logo {
-        width: 80px;
-        height: 80px;
-        right: 5%;
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 900px) {
+    .signupContainer h2 {
+        font-size: 3rem;
+    }
+    
+    .signupContainer .card {
+        grid-template-columns: 1fr;
+        width: 95%;
+        max-width: 500px;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    .signupContainer {
+        padding: 80px 15px 15px 15px;
+    }
+    
+    .signupContainer h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .signupContainer .card {
+        width: 100%;
+        min-height: 400px;
+        padding: 10px;
+    }
+    
+    .signupContainer .card form {
+        padding: 20px;
+    }
+    
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .signupContainer input {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+    
+    .signupContainer .submit-btn {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .signupContainer h2 {
+        font-size: 2rem;
+    }
+    
+    .signupContainer .card form {
+        padding: 15px;
     }
 }
