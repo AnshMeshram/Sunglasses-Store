@@ -121,6 +121,32 @@ function App() {
           </>
         } />
       </Routes>
+      {(location.pathname !== "/signup" ||
+        location.pathname === "/signup/") && (
+        <>
+          {/* Mobile Menu Toggle Button */}
+          <button
+            className="menu-toggle"
+            onClick={toggleSidebar}
+            aria-label="Toggle Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          {/* Overlay for mobile */}
+          <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
+
+          <Nav
+            query={query}
+            handleInputChange={handleInputChange}
+            cartCount={cart.length}
+          />
+          <Recommended handleClick={handleClick} />
+          <Products results={result} addToCart={addToCart} cartItems={cart} />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

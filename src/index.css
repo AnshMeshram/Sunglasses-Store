@@ -137,17 +137,20 @@ footer {
 
 /* Mobile Menu Toggle Button */
 .menu-toggle {
+  height : 40px;
   display: none;
   position: fixed;
   top: 15px;
   left: 15px;
-  z-index: 150;
+  z-index: 200;
   background: #e15252;
   border: none;
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 4px ;
+  margin-right: 4px;
 }
 
 .menu-toggle span {
@@ -181,7 +184,8 @@ footer {
 /* Mobile Styles (max-width: 768px) */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: inline;
+    border: 2px;
   }
 
   .sidebar {

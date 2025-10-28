@@ -6,27 +6,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    z-index: 999;
-    position: relative;
-    /* 🎨 NEW: Match the sidebar gradient theme */
-    background: linear-gradient(135deg, #ffc4a3 0%, #ffab8e 35%, #ff9478 70%, #ff8366 100%);
-    box-shadow: 0 2px 10px rgba(255, 140, 100, 0.2);
-    transition: all 0.3s ease;
-}
-
-/* Style for each icon */
-.nav-icons {
-    font-size: 1.5rem;
-    
-    color: #000000;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.nav-icons:hover {
-    /* 🔴 Dark red hover for warmth */
-    color: #8B0000;
-    transform: scale(1.05);
+    z-index: 0;
+    position: relative; /* Add this */
 }
 
 /* Style for the search input */
@@ -37,32 +18,17 @@
     background: rgba(255, 255, 255, 0.9);
     outline: none;
     margin-right: 20px;
-    border-radius: 25px; /* More rounded to match modern design */
-    width: 100%;
-    max-width: 50rem;
-    min-width: 200px;
-    transition: all 0.3s ease;
-    /* 🎨 NEW: Coral-tinted shadow */
-    box-shadow: 0 2px 5px rgba(255, 139, 139, 0.2);
-}
-
-.search-input::placeholder {
-    /* 🎨 NEW: Warm brown placeholder */
-    color: #A0522D;
-}
-
-.search-input:focus {
-    background: rgba(255, 255, 255, 1);
-    /* 🎨 NEW: Coral focus ring */
-    box-shadow: 0 0 0 3px rgba(255, 131, 102, 0.3);
+    border-radius: 5px;
+    width: 50rem;
+    max-width: 100%; /* Add this for responsiveness */
+    height : 40px;
+    max-width: 500px;
 }
 
 /* Container for profile icons and the Sign Up button */
 .profile-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    flex-shrink: 0; /* Prevent icons from shrinking */
 }
 
 /* Cart badge wrapper */
@@ -110,10 +76,7 @@
 /* Mobile styles (up to 768px) */
 @media (max-width: 768px) {
     .nav-container {
-        margin-left: 0; /* Remove margin when sidebar is hidden/toggled */
-        padding: 15px 10px;
-        flex-wrap: wrap; /* Allow wrapping if needed */
-        gap: 10px;
+        margin-left: 15vw; /* Remove margin on mobile */
     }
     
     .search-input {
