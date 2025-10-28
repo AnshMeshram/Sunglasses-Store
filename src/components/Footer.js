@@ -71,7 +71,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <small>
-          © {new Date().getFullYear()} <strong>Sunglasses Store</strong> — All Rights Reserved.
+          © <strong>Sunglasses Store</strong> — All Rights Reserved {new Date().getFullYear()}
         </small>
       </div>
     </footer>
