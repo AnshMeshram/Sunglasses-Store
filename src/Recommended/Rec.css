@@ -32,6 +32,7 @@
     gap: 12px;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-start;
 }
 
 /* Enhanced button styles */
@@ -49,6 +50,7 @@
     overflow: hidden;
     white-space: nowrap;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    margin: 0;
 }
 
 /* Button text wrapper */
@@ -121,6 +123,15 @@
     .recommended-subtitle {
         font-size: 14px;
     }
+
+    .recomended-flex {
+        gap: 10px;
+    }
+
+    .btns {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
 }
 
 /* Mobile styles */
@@ -128,33 +139,33 @@
     .rec-container {
         margin-left: 0;
         padding: 30px 20px 20px;
+        background: #ffffff;
     }
 
     .rec-header {
-        text-align: center;
+        text-align: left;
         margin-bottom: 20px;
+        padding: 0;
     }
 
     .recommended-title {
         font-size: 22px;
         margin-bottom: 6px;
+        text-align: left;
     }
 
     .recommended-subtitle {
         font-size: 14px;
+        text-align: left;
     }
 
     .recomended-flex {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        padding-bottom: 8px;
+        display: flex;
+        flex-wrap: wrap;
         gap: 10px;
-    }
-
-    .recomended-flex::-webkit-scrollbar {
-        display: none;
+        justify-content: flex-start;
+        padding-bottom: 0;
+        -webkit-overflow-scrolling: touch;
     }
 
     .btns {
@@ -162,6 +173,7 @@
         padding: 12px 22px;
         font-size: 13px;
         white-space: nowrap;
+        margin: 0;
     }
 }
 
@@ -173,10 +185,12 @@
 
     .recommended-title {
         font-size: 20px;
+        margin-bottom: 8px;
     }
 
     .recommended-subtitle {
         font-size: 13px;
+        line-height: 1.4;
     }
 
     .recomended-flex {
@@ -186,6 +200,20 @@
     .btns {
         padding: 11px 20px;
         font-size: 12px;
+        flex: 0 0 auto;
+    }
+
+    /* Stack buttons vertically on very small screens */
+    @media (max-width: 360px) {
+        .recomended-flex {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .btns {
+            width: 100%;
+            text-align: center;
+        }
     }
 }
 
@@ -205,10 +233,9 @@
     animation: fadeInUp 0.6s ease-out;
 }
 
-/* Stagger animation for buttons */
-.btns:nth-child(1) { animation: fadeInUp 0.6s ease-out 0.1s both; }
-.btns:nth-child(2) { animation: fadeInUp 0.6s ease-out 0.15s both; }
-.btns:nth-child(3) { animation: fadeInUp 0.6s ease-out 0.2s both; }
-.btns:nth-child(4) { animation: fadeInUp 0.6s ease-out 0.25s both; }
-.btns:nth-child(5) { animation: fadeInUp 0.6s ease-out 0.3s both; }
-.btns:nth-child(6) { animation: fadeInUp 0.6s ease-out 0.35s both; }
+/* Remove staggered animations on mobile for better performance */
+@media (max-width: 768px) {
+    .btns {
+        animation: none;
+    }
+}
