@@ -1,11 +1,12 @@
- 
+import React from "react";
 import "./Footer.css";
+import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
- 
 const socialLinks = [
-  { name: "Instagram", url: "https://instagram.com" },
-  { name: "Facebook", url: "https://facebook.com" },
-  { name: "Twitter", url: "https://twitter.com" },
+  { name: "Instagram", url: "https://instagram.com", icon: <FaInstagram /> },
+  { name: "Facebook", url: "https://facebook.com", icon: <FaFacebookF /> },
+  { name: "Twitter", url: "https://twitter.com", icon: <FaTwitter /> },
+  { name: "LinkedIn", url: "https://linkedin.com", icon: <FaLinkedinIn /> },
 ];
 
 function Footer({ variant = "default" }) {
@@ -35,55 +36,57 @@ function Footer({ variant = "default" }) {
     }
   };
   return (
-    <footer className={rootClass}>
+    <footer className="footer">
       <div className="footer-container">
-        <div className="footer-left footer-section">
-          <h4 className="footer-brand">Sunglasses Store</h4>
-          <p className="footer-desc">
-            Handpicked eyewear for every season. Stylish, protective, and made
-            for you.
+        
+        {/* Brand Section */}
+        <div className="footer-section footer-brand">
+          <h2 className="brand-title">Sunglasses Store 🕶️</h2>
+          <p className="brand-text">
+            Premium eyewear for every occasion stylish, durable, and built for comfort.
           </p>
         </div>
 
-        <div className="footer-center footer-section">
-          <h5 className="footer-title">Contact</h5>
-          <p className="footer-item">
-            Email:{" "}
-            <a href="mailto:info@sunglasses-store.com">
-              info@sunglasses-store.com
-            </a>
-          </p>
-          <p className="footer-item">Phone: +1 (555) 123-4567</p>
-          <p className="footer-item">Location: 123 Sunny Ave, Beach City</p>
+        {/* Contact Section */}
+        <div className="footer-section footer-contact">
+          <h4 className="footer-heading">Get in Touch</h4>
+          <ul className="footer-list">
+            <li>
+              <a href="mailto:info@sunglasses-store.com" className="footer-link">
+                info@sunglasses-store.com
+              </a>
+            </li>
+            <li>+1 (555) 123-4567</li>
+            <li>123 Sunny Ave, Beach City</li>
+          </ul>
         </div>
 
-        <div className="footer-right footer-section">
-          <h5 className="footer-title">Follow</h5>
-          <div className="social-links">
-             
+        {/* Social Section */}
+        <div className="footer-section footer-social">
+          <h4 className="footer-heading">Follow Us</h4>
+          <div className="social-icons">
             {socialLinks.map((link) => (
               <a
-                key={link.name}  
+                key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.name}
-                className="social-link"
+                className="social-icon"
               >
-                <span className="social-icon" aria-hidden>
-                  <Icon name={link.name} />
-                </span>
-                <span className="social-label">{link.name}</span>
+                {link.icon}
               </a>
             ))}
           </div>
         </div>
       </div>
 
+      <div className="footer-divider"></div>
+
       <div className="footer-bottom">
-         
         <small>
-          © 2025 Alizay Ayesha. Designed & Built with ❤️. All rights reserved.
+          © {new Date().getFullYear()} <strong>Sunglasses Store</strong> — Designed & Built with ❤️ by{" "}
+          <strong>Sunglasses Store</strong>.
         </small>
       </div>
     </footer>
