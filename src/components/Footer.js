@@ -85,8 +85,7 @@ function Footer({ variant = "default" }) {
 
       <div className="footer-bottom">
         <small>
-          © {new Date().getFullYear()} <strong>Sunglasses Store</strong> — Designed & Built with ❤️ by{" "}
-          <strong>Sunglasses Store</strong>.
+          © {new Date().getFullYear()} <strong>Sunglasses Store</strong>. All rights reserved.
         </small>
       </div>
     </footer>
