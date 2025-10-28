@@ -26,6 +26,45 @@ function App() {
 
   const location = useLocation();
 
+  // Theme state with system preference detection
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved) return saved;
+      // Check system preference
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      return 'light';
+    } catch (err) {
+      return 'light';
+    }
+  });
+
+  // Apply theme to document
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  // Listen for system theme changes
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e) => {
+      // Only auto-switch if user hasn't manually set a preference
+      const savedTheme = localStorage.getItem('theme');
+      if (!savedTheme) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
+
   // Sync cart across browser tabs
   useEffect(() => {
     const handleStorageChange = (e) => {
@@ -155,6 +194,8 @@ function App() {
               query={query}
               handleInputChange={handleInputChange}
               cartCount={cart.length}
+              theme={theme}
+              toggleTheme={toggleTheme}
             />
             <Recommended handleClick={handleClick} />
             <Products results={result} addToCart={addToCart} cartItems={cart} />
