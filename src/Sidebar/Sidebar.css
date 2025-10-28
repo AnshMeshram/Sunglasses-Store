@@ -1,11 +1,10 @@
- .sidebar {
-    width: 250px;
-    height:100vh;
+.sidebar {
+    width: 280px;
+    height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    height: 100vh;
-    border-right: 2px solid #e5e5e5;
+    border-right: 1px solid #e8edf3;
     z-index: 200;
     display: flex;
     flex-direction: column;
@@ -13,18 +12,42 @@
     overflow-y: auto;
     overflow-x: hidden;
     box-sizing: border-box;
-    background: linear-gradient(180deg, #ffc4a3 0%, #ffab8e 35%, #ff9478 70%, #ff8366 100%) !important;
-    background-image: linear-gradient(180deg, #ffc7a6 0%, #ffcab8 35%, #f08368 70%, #ff8366 100%) !important;
-    box-shadow: 3px 0 15px rgba(255, 140, 100, 0.15);
+    background: #f8f9fa;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.04);
     transition: transform 0.3s ease;
 }
 
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #f1f8ff;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
 .logo-container {
-    padding: 20px 0;
+    padding: 24px 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #e8edf3;
+    margin-bottom: 20px;
 }
 
 .sidebar-title {
     text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
 }
 
 /* Mobile styles */
@@ -32,6 +55,7 @@
     .sidebar {
         transform: translateX(-100%);
         width: 280px;
+        background: #ffffff;
     }
 
     .sidebar.active {
@@ -42,6 +66,6 @@
 /* Tablet styles */
 @media (max-width: 1024px) and (min-width: 769px) {
     .sidebar {
-        width: 200px;
+        width: 240px;
     }
 }

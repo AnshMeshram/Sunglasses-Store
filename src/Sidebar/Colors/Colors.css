@@ -1,9 +1,38 @@
-.color-title{
-  font-size: 18px;
-  font-weight: 980px;
-}
-.all{
-    background: linear-gradient(blue,crimson);
+.color-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c3e50;
+    padding: 0 20px;
+    margin-bottom: 20px;
 }
 
+.color-container {
+    padding: 0 20px;
+}
 
+.color-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.color-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #e8edf3;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.color-button:hover {
+    transform: scale(1.1);
+    border-color: #3498db;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.color-button.active {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}

@@ -26,6 +26,26 @@ function App() {
 
   const location = useLocation();
 
+  // Add item to cart
+  const addToCart = (product) => {
+    setCart((prevCart) => {
+      // Check if item already exists in cart
+      const existingItem = prevCart.find((item) => item.id === product.id);
+      
+      if (existingItem) {
+        // If exists, remove it (toggle off)
+        const updatedCart = prevCart.filter((item) => item.id !== product.id);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        return updatedCart;
+      } else {
+        // If not exists, add it (toggle on)
+        const updatedCart = [...prevCart, product];
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        return updatedCart;
+      }
+    });
+  };
+
   // Toggle sidebar for mobile
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -90,9 +110,6 @@ function App() {
   };
 
   const result = filteredData(data, selectedCategory, query, selectedPrice);
-  
-  // Check if we're on the signup page
-  const isSignupPage = location.pathname === '/signup';
 
   return (
     <div>
@@ -114,39 +131,17 @@ function App() {
             {/* Overlay for mobile */}
             <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
 
-            <Nav query={query} handleInputChange={handleInputChange} />
+            <Nav
+              query={query}
+              handleInputChange={handleInputChange}
+              cartCount={cart.length}
+            />
             <Recommended handleClick={handleClick} />
-            <Products results={result} />
+            <Products results={result} addToCart={addToCart} cartItems={cart} />
             <Footer />
           </>
         } />
       </Routes>
-      {(location.pathname !== "/signup" ||
-        location.pathname === "/signup/") && (
-        <>
-          {/* Mobile Menu Toggle Button */}
-          <button
-            className="menu-toggle"
-            onClick={toggleSidebar}
-            aria-label="Toggle Menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          {/* Overlay for mobile */}
-          <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
-
-          <Nav
-            query={query}
-            handleInputChange={handleInputChange}
-            cartCount={cart.length}
-          />
-          <Recommended handleClick={handleClick} />
-          <Products results={result} addToCart={addToCart} cartItems={cart} />
-          <Footer />
-        </>
-      )}
     </div>
   );
 }
