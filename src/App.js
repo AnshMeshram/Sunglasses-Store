@@ -4,6 +4,9 @@ import Sidebar from './Sidebar/Sidebar';
 import Nav from './Nav/Nav';
 import Products from './Products/Products';
 import Recommended from './Recommended/Rec';
+import Cart from './components/Cart';
+import Notification from './components/Notification';
+import AddedToCartPopup from './components/AddedToCartPopup';
 import './index.css';
 import { products as data } from './db/data';
 import SignUp from './Signup/Signup';
@@ -14,6 +17,12 @@ function App() {
   const [selectedPrice, setSelectedPrice] = useState(null);
   const [query, setQuery] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [notification, setNotification] = useState({ message: '', type: 'success', isVisible: false });
+  const [addedToCartPopup, setAddedToCartPopup] = useState({ 
+    isVisible: false, 
+    product: null 
+  });
   const [cart, setCart] = useState(() => {
     try {
       const raw = localStorage.getItem("cart");
@@ -85,6 +94,15 @@ function App() {
     };
   }, []);
 
+  // Show notification
+  const showNotification = (message, type = 'success') => {
+    setNotification({ message, type, isVisible: true });
+  };
+
+  const hideNotification = () => {
+    setNotification(prev => ({ ...prev, isVisible: false }));
+  };
+
   // Add item to cart
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -95,14 +113,74 @@ function App() {
         // If exists, remove it (toggle off)
         const updatedCart = prevCart.filter((item) => item.id !== product.id);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
+        showNotification(`${product.title} removed from cart`, 'remove');
         return updatedCart;
       } else {
-        // If not exists, add it (toggle on)
-        const updatedCart = [...prevCart, product];
+        // If not exists, add it with quantity 1
+        const productWithQuantity = { ...product, quantity: 1 };
+        const updatedCart = [...prevCart, productWithQuantity];
         localStorage.setItem("cart", JSON.stringify(updatedCart));
+        
+        // Show both notification and popup
+        showNotification(`${product.title} added to cart!`, 'success');
+        setAddedToCartPopup({
+          isVisible: true,
+          product: productWithQuantity
+        });
+        
         return updatedCart;
       }
     });
+  };
+
+  // Update quantity of item in cart
+  const updateQuantity = (productId, newQuantity) => {
+    if (newQuantity <= 0) {
+      removeFromCart(productId);
+      return;
+    }
+    
+    setCart((prevCart) => {
+      const updatedCart = prevCart.map((item) =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      );
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+  };
+
+  // Remove item from cart
+  const removeFromCart = (productId) => {
+    setCart((prevCart) => {
+      const itemToRemove = prevCart.find(item => item.id === productId);
+      const updatedCart = prevCart.filter((item) => item.id !== productId);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      if (itemToRemove) {
+        showNotification(`${itemToRemove.title} removed from cart`, 'remove');
+      }
+      return updatedCart;
+    });
+  };
+
+  // Clear entire cart
+  const clearCart = () => {
+    setCart([]);
+    localStorage.setItem("cart", JSON.stringify([]));
+    showNotification('Cart cleared', 'remove');
+  };
+
+  // Toggle cart sidebar
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
+  // Close added to cart popup
+  const closeAddedToCartPopup = () => {
+    setAddedToCartPopup({ isVisible: false, product: null });
   };
 
   // Toggle sidebar for mobile
@@ -193,13 +271,43 @@ function App() {
             <Nav
               query={query}
               handleInputChange={handleInputChange}
-              cartCount={cart.length}
+              cartCount={cart.reduce((total, item) => total + (item.quantity || 1), 0)}
               theme={theme}
               toggleTheme={toggleTheme}
+              toggleCart={toggleCart}
             />
             <Recommended handleClick={handleClick} />
             <Products results={result} addToCart={addToCart} cartItems={cart} />
             <Footer />
+            
+            <Cart
+              isOpen={isCartOpen}
+              onClose={closeCart}
+              cartItems={cart}
+              updateQuantity={updateQuantity}
+              removeFromCart={removeFromCart}
+              clearCart={clearCart}
+            />
+            
+            <Notification
+              message={notification.message}
+              type={notification.type}
+              isVisible={notification.isVisible}
+              onClose={hideNotification}
+            />
+            
+            <AddedToCartPopup
+              isVisible={addedToCartPopup.isVisible}
+              onClose={closeAddedToCartPopup}
+              productName={addedToCartPopup.product?.title}
+              productImage={addedToCartPopup.product?.images?.[0]?.src}
+              productPrice={parseFloat(addedToCartPopup.product?.newPrice || 0).toFixed(2)}
+              cartCount={cart.reduce((total, item) => total + (item.quantity || 1), 0)}
+              onViewCart={() => {
+                closeAddedToCartPopup();
+                toggleCart();
+              }}
+            />
           </>
         } />
       </Routes>

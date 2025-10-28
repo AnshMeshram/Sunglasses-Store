@@ -27,4 +27,4 @@ function buttons(handleClick) {
   )
 }
 
-export default buttons
+export default Buttons
