@@ -3,25 +3,28 @@ function Rec({ handleClick }) {
   return (
     <>
       <div className="rec-container">
-        <h1 className="recomended-title">Recomended</h1>
-        <div className="Recomended-flex">
+        <div className="rec-header">
+          <h2 className="recommended-title">Recommended Brands</h2>
+          <p className="recommended-subtitle">Filter by brand to find your perfect style</p>
+        </div>
+        <div className="recomended-flex">
           <button className="btns" onClick={handleClick} value="">
-            All Products
+            <span className="btn-text">All Products</span>
           </button>
           <button className="btns" onClick={handleClick} value="Ray-Ban">
-            Ray-Ban
+            <span className="btn-text">Ray-Ban</span>
           </button>
           <button className="btns" onClick={handleClick} value="Chanel">
-            Chanel
+            <span className="btn-text">Chanel</span>
           </button>
           <button className="btns" onClick={handleClick} value="Oakley">
-            Oakley
+            <span className="btn-text">Oakley</span>
           </button>
           <button className="btns" onClick={handleClick} value="Gucci">
-            Gucci
+            <span className="btn-text">Gucci</span>
           </button>
           <button className="btns" onClick={handleClick} value="Dior">
-            Dior
+            <span className="btn-text">Dior</span>
           </button>
         </div>
       </div>

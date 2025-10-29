@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaMoon, FaSun } from "react-icons/fa";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { MdShoppingCart } from "react-icons/md";
 import { useCart } from "../context/CartContext";

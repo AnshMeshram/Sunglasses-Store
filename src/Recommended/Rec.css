@@ -1,28 +1,241 @@
-.rec-container{
-    margin-left: 20rem;
- 
-}
-.recomended-flex {
-    display: flex;
-    margin-left: 20rem;
-    font-family: sans-serif;
-}
-.recommended-title {
-    margin-left: 20rem;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    font-size: 20px;
-    color: black; /* Ensure text color is visible */
-    background-color: lightgray; /* Temporary background for visibility */
+/* Main container */
+.rec-container {
+    margin-left: 280px;
+    background: #f8f9fa;
+    padding: 40px 30px 30px;
+    transition: margin-left 0.3s ease;
 }
 
-.btns{
-  padding: 10px 20px;
-  margin-right: 6px;
-  background: transparent;
- border: none;
- border: 0.6px solid #ccc;
- border-radius: 5px;
- color: #323232;
- cursor: pointer;
+/* Header section */
+.rec-header {
+    margin-bottom: 24px;
+}
+
+.recommended-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.recommended-subtitle {
+    font-size: 15px;
+    color: #7f8c8d;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Buttons container */
+.recomended-flex {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Enhanced button styles */
+.btns {
+    padding: 14px 28px;
+    background: #ffffff;
+    border: 2px solid #e8edf3;
+    border-radius: 30px;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    margin: 0;
+}
+
+/* Button text wrapper */
+.btn-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Button background animation */
+.btns::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+    z-index: 1;
+}
+
+.btns:hover {
+    border-color: #3498db;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+}
+
+.btns:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btns:hover .btn-text {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.btns:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+}
+
+/* Active state */
+.btns.active {
+    background: #3498db;
+    border-color: #3498db;
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(52, 152, 219, 0.3);
+}
+
+.btns.active .btn-text {
+    color: #ffffff;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .rec-container {
+        margin-left: 240px;
+        padding: 35px 24px 24px;
+    }
+
+    .recommended-title {
+        font-size: 24px;
+    }
+
+    .recommended-subtitle {
+        font-size: 14px;
+    }
+
+    .recomended-flex {
+        gap: 10px;
+    }
+
+    .btns {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .rec-container {
+        margin-left: 0;
+        padding: 30px 20px 20px;
+        background: #ffffff;
+    }
+
+    .rec-header {
+        text-align: left;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .recommended-title {
+        font-size: 22px;
+        margin-bottom: 6px;
+        text-align: left;
+    }
+
+    .recommended-subtitle {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .recomended-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
+        padding-bottom: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .btns {
+        flex-shrink: 0;
+        padding: 12px 22px;
+        font-size: 13px;
+        white-space: nowrap;
+        margin: 0;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .rec-container {
+        padding: 24px 15px 15px;
+    }
+
+    .recommended-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .recommended-subtitle {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .recomended-flex {
+        gap: 8px;
+    }
+
+    .btns {
+        padding: 11px 20px;
+        font-size: 12px;
+        flex: 0 0 auto;
+    }
+
+    /* Stack buttons vertically on very small screens */
+    @media (max-width: 360px) {
+        .recomended-flex {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .btns {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+/* Animation for container entrance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rec-container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Remove staggered animations on mobile for better performance */
+@media (max-width: 768px) {
+    .btns {
+        animation: none;
+    }
 }
