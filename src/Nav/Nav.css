@@ -48,6 +48,7 @@
     color: #000;
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-icons:hover {
@@ -58,6 +59,7 @@
 .cart-wrapper {
     position: relative;
     display: inline-block;
+    cursor: pointer;
 }
 
 .cart-badge {
@@ -72,10 +74,25 @@
     font-weight: 600;
     min-width: 18px;
     text-align: center;
+    animation: scaleIn 0.3s ease;
+}
+
+/* Animation for cart badge */
+@keyframes scaleIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Bag icon when item is in cart */
-.bag-icon.in-cart {
+.bag-icon.in-cart,
+.nav-icons.in-cart {
     color: #ff4d4f;
 }
 
@@ -140,5 +157,11 @@
     
     .profile-container {
         gap: 0.6rem;
+    }
+    
+    .cart-badge {
+        font-size: 0.7rem;
+        padding: 1px 5px;
+        min-width: 16px;
     }
 }

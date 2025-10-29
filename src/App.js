@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
 import Sidebar from './Sidebar/Sidebar';
 import Nav from './Nav/Nav';
 import Products from './Products/Products';
@@ -81,38 +82,37 @@ function App() {
   };
 
   const result = filteredData(data, selectedCategory, query, selectedPrice);
-  
-  // Check if we're on the signup page
-  const isSignupPage = location.pathname === '/signup';
 
   return (
-    <div>
-      <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/" element={
-          <>
-            {/* Mobile Menu Toggle Button */}
-            <button 
-              className="menu-toggle" 
-              onClick={toggleSidebar}
-              aria-label="Toggle Menu"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+    <CartProvider>
+      <div>
+        <Routes>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={
+            <>
+              {/* Mobile Menu Toggle Button */}
+              <button 
+                className="menu-toggle" 
+                onClick={toggleSidebar}
+                aria-label="Toggle Menu"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
 
-            {/* Overlay for mobile */}
-            <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
+              {/* Overlay for mobile */}
+              <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
 
-            <Nav query={query} handleInputChange={handleInputChange} />
-            <Recommended handleClick={handleClick} />
-            <Products results={result} />
-            <Footer />
-          </>
-        } />
-      </Routes>
-    </div>
+              <Nav query={query} handleInputChange={handleInputChange} />
+              <Recommended handleClick={handleClick} />
+              <Products results={result} />
+              <Footer />
+            </>
+          } />
+        </Routes>
+      </div>
+    </CartProvider>
   );
 }
 
