@@ -110,14 +110,22 @@ function App() {
       const existingItem = prevCart.find((item) => item.id === product.id);
       
       if (existingItem) {
-        // If exists, remove it (toggle off)
-        const updatedCart = prevCart.filter((item) => item.id !== product.id);
+        // If exists, update quantity by adding the new quantity
+        const updatedCart = prevCart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: (item.quantity || 1) + (product.quantity || 1) }
+            : item
+        );
         localStorage.setItem("cart", JSON.stringify(updatedCart));
-        showNotification(`${product.title} removed from cart`, 'remove');
+        showNotification(`${product.title} quantity updated!`, 'success');
+        setAddedToCartPopup({
+          isVisible: true,
+          product: { ...product, quantity: (existingItem.quantity || 1) + (product.quantity || 1) }
+        });
         return updatedCart;
       } else {
-        // If not exists, add it with quantity 1
-        const productWithQuantity = { ...product, quantity: 1 };
+        // If not exists, add it with specified quantity
+        const productWithQuantity = { ...product, quantity: product.quantity || 1 };
         const updatedCart = [...prevCart, productWithQuantity];
         localStorage.setItem("cart", JSON.stringify(updatedCart));
         

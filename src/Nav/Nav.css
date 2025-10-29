@@ -1,45 +1,68 @@
-/* Container for the navigation bar */
+/* Container for the navigation bar - Gen Z Glassmorphism */
 .nav-container {
     margin-left: 280px;
     display: flex;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background: var(--bg-primary);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     position: sticky;
     top: 0;
     z-index: 50;
-    box-shadow: 0 2px 8px var(--shadow);
+    box-shadow: 0 4px 30px var(--shadow);
     transition: margin-left 0.3s ease;
 }
 
-/* Style for the search input */
+[data-theme="dark"] .nav-container {
+    background: rgba(15, 15, 35, 0.9);
+    border-bottom: 2px solid var(--accent-neon);
+    box-shadow: 0 4px 30px rgba(0, 242, 254, 0.2);
+}
+
+/* Style for the search input - Gen Z Bold */
 .search-input {
     flex: 1;
     max-width: 600px;
-    padding: 14px 20px;
+    padding: 16px 28px;
     border: 2px solid var(--border-color);
-    background: var(--bg-secondary);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
     outline: none;
     margin-right: 24px;
-    border-radius: 30px;
-    height: 48px;
+    border-radius: 50px;
+    height: 52px;
     font-size: 15px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: inherit;
     color: var(--text-primary);
+    box-shadow: 0 4px 20px var(--shadow);
+}
+
+[data-theme="dark"] .search-input {
+    background: rgba(26, 26, 62, 0.7);
+    border-color: var(--accent-neon);
 }
 
 .search-input:focus {
-    background: var(--bg-primary);
+    background: rgba(255, 255, 255, 0.95);
     border-color: var(--accent-primary);
-    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 0 0 4px var(--shadow-hover), 0 8px 30px var(--shadow);
+    transform: translateY(-3px) scale(1.02);
+}
+
+[data-theme="dark"] .search-input:focus {
+    background: rgba(26, 26, 62, 0.95);
+    border-color: var(--accent-neon);
+    box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.2), 0 8px 30px rgba(0, 242, 254, 0.3);
 }
 
 .search-input::placeholder {
     color: var(--text-tertiary);
+    font-weight: 500;
 }
 
 /* Container for profile icons and the Sign Up button */
@@ -50,25 +73,40 @@
 }
 
 .nav-icon-button {
-    background: transparent;
-    border: none;
+    background: linear-gradient(135deg, rgba(103, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border: 2px solid transparent;
     cursor: pointer;
-    padding: 10px 14px;
-    border-radius: 12px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px 16px;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
+[data-theme="dark"] .nav-icon-button {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(196, 113, 245, 0.1));
+}
+
 .nav-icon-button:hover {
-    background: var(--bg-tertiary);
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+    border-color: var(--accent-neon);
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 24px var(--shadow-hover);
+}
+
+[data-theme="dark"] .nav-icon-button:hover {
+    background: linear-gradient(135deg, var(--accent-neon), var(--accent-purple));
+    box-shadow: 0 8px 24px rgba(0, 242, 254, 0.4);
+}
+
+.nav-icon-button:hover .nav-icons {
+    color: #ffffff !important;
 }
 
 .nav-icon-button:active {
-    transform: translateY(0);
+    transform: translateY(-2px) scale(1.05);
 }
 
 .nav-icons {

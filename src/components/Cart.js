@@ -63,8 +63,14 @@ function Cart({
                       <div className="quantity-controls">
                         <button 
                           className="quantity-btn"
-                          onClick={() => updateQuantity(item.id, (item.quantity || 1) - 1)}
-                          disabled={(item.quantity || 1) <= 1}
+                          onClick={() => {
+                            const newQty = (item.quantity || 1) - 1;
+                            if (newQty <= 0) {
+                              removeFromCart(item.id);
+                            } else {
+                              updateQuantity(item.id, newQty);
+                            }
+                          }}
                         >
                           <FaMinus />
                         </button>
