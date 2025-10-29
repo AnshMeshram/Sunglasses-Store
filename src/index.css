@@ -1,38 +1,139 @@
- * {
+:root {
+  /* Gen Z Light theme - Vibrant & Bold */
+  --bg-primary: #ffffff;
+  --bg-secondary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --bg-tertiary: #f0f4ff;
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --bg-gradient-alt: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --bg-gradient-card: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --text-primary: #1a1a2e;
+  --text-secondary: #16213e;
+  --text-tertiary: #6b7280;
+  --border-color: rgba(103, 126, 234, 0.2);
+  --border-light: rgba(103, 126, 234, 0.1);
+  --shadow: rgba(103, 126, 234, 0.15);
+  --shadow-hover: rgba(103, 126, 234, 0.3);
+  --accent-primary: #667eea;
+  --accent-hover: #764ba2;
+  --accent-neon: #00f2fe;
+  --accent-pink: #f5576c;
+  --accent-purple: #764ba2;
+  --accent-yellow: #ffd93d;
+}
+
+[data-theme="dark"] {
+  /* Gen Z Dark theme - Neon & Cyberpunk */
+  --bg-primary: #0f0f23;
+  --bg-secondary: linear-gradient(135deg, #1a1a3e 0%, #0f0f23 100%);
+  --bg-tertiary: #1a1a3e;
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --bg-gradient-alt: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --bg-gradient-card: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --text-tertiary: #a0a0a0;
+  --border-color: rgba(0, 242, 254, 0.3);
+  --border-light: rgba(0, 242, 254, 0.15);
+  --shadow: rgba(0, 242, 254, 0.2);
+  --shadow-hover: rgba(0, 242, 254, 0.4);
+  --accent-primary: #00f2fe;
+  --accent-hover: #667eea;
+  --accent-neon: #00f2fe;
+  --accent-pink: #ff6b9d;
+  --accent-purple: #c471f5;
+  --accent-yellow: #ffd93d;
+}
+
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body {
-  background-image: linear-gradient(to right, #fff7c8 0%, #ec2323 100%);
+  background: var(--bg-primary);
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
+  color: var(--text-primary);
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Add subtle animated background pattern for Gen Z vibe */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(103, 126, 234, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(245, 87, 108, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="dark"] body::before {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 242, 254, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(196, 113, 245, 0.08) 0%, transparent 50%);
 }
 
 a {
   text-decoration: none;
-  color: rgb(97, 97, 97);
+  color: var(--text-primary);
 }
 
 li {
   list-style: none;
 }
 
+/* Gen Z Modern Button Style */
 .btns {
-  padding: 10px 20px;
-  margin-right: 6px;
-  background: #e15252;
-  border: none;
-  border: 0.6px solid hsl(52, 100%, 52%);
-  border-radius: 5px;
-  color: #000000;
+  padding: 14px 28px;
+  margin-right: 8px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+  border: 2px solid transparent;
+  border-radius: 50px;
+  color: #ffffff;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+.btns::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--accent-neon), var(--accent-pink));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
 }
 
 .btns:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 30px var(--shadow-hover);
+  border-color: var(--accent-neon);
+}
+
+.btns:hover::before {
+  opacity: 1;
+}
+
+.btns:active {
+  transform: translateY(-2px) scale(1.02);
 }
 
 /* App Container */
@@ -42,139 +143,328 @@ li {
   min-height: 100vh;
 }
 
-/* Sidebar Responsive Styles */
+/* Sidebar Responsive Styles - Gen Z Glassmorphism */
 .sidebar {
   position: fixed;
   left: 0;
   top: 0;
   height: 100vh;
-  width: 250px;
-  background: rgba(255, 255, 255, 0.95);
+  width: 280px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 20px;
   overflow-y: auto;
   z-index: 100;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  border-right: 2px solid var(--border-color);
   transition: transform 0.3s ease;
+  box-shadow: 4px 0 30px var(--shadow);
 }
 
-/* Navigation Responsive Styles */
+[data-theme="dark"] .sidebar {
+  background: rgba(15, 15, 35, 0.85);
+  border-right: 2px solid var(--accent-neon);
+  box-shadow: 4px 0 30px rgba(0, 242, 254, 0.2);
+}
+
+/* Navigation Responsive Styles - Gen Z Glassmorphism */
 .nav {
   position: sticky;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 15px 20px;
-  margin-left: 250px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 20px 30px;
+  margin-left: 280px;
   z-index: 50;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid var(--border-color);
   transition: margin-left 0.3s ease;
+  box-shadow: 0 4px 30px var(--shadow);
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(15, 15, 35, 0.9);
+  border-bottom: 2px solid var(--accent-neon);
 }
 
 .nav input {
   width: 100%;
   max-width: 500px;
-  padding: 12px 20px;
-  border: 1px solid #ddd;
-  border-radius: 25px;
-  font-size: 16px;
+  padding: 16px 24px;
+  border: 2px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+[data-theme="dark"] .nav input {
+  background: rgba(26, 26, 62, 0.7);
+  border-color: var(--accent-neon);
+}
+
+.nav input:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px var(--shadow-hover), 0 8px 25px var(--shadow);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="dark"] .nav input:focus {
+  background: rgba(26, 26, 62, 0.95);
+  border-color: var(--accent-neon);
+  box-shadow: 0 0 0 4px rgba(0, 242, 254, 0.2), 0 8px 25px rgba(0, 242, 254, 0.3);
+}
+
+.nav input::placeholder {
+  color: var(--text-tertiary);
+  font-weight: 500;
 }
 
 /* Recommended Section */
 .recommended {
-  margin-left: 250px;
-  padding: 20px;
+  margin-left: 280px;
+  padding: 30px;
+  background: var(--bg-primary);
   transition: margin-left 0.3s ease;
 }
 
 .recommended-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
 }
 
 /* Products Section */
 .products {
-  margin-left: 250px;
-  padding: 20px;
+  margin-left: 280px;
+  padding: 30px;
   transition: margin-left 0.3s ease;
 }
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
   padding: 20px 0;
 }
 
+/* Card Styles - Gen Z Vibrant */
 .card {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 244, 255, 0.95));
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 32px var(--shadow);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .card {
+  background: linear-gradient(135deg, rgba(26, 26, 62, 0.95), rgba(15, 15, 35, 0.95));
+  border-color: var(--accent-neon);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, var(--accent-neon), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 0.1;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 50px var(--shadow-hover);
+  border-color: var(--accent-primary);
+}
+
+[data-theme="dark"] .card:hover {
+  box-shadow: 0 20px 50px rgba(0, 242, 254, 0.4);
+  border-color: var(--accent-neon);
 }
 
 .card img {
   width: 100%;
   height: auto;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
 }
 
 /* Footer */
 footer {
-  margin-left: 250px;
-  padding: 20px;
+  margin-left: 280px;
+  padding: 30px;
   text-align: center;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
   transition: margin-left 0.3s ease;
 }
 
-/* Mobile Menu Toggle Button */
+/* Mobile Menu Toggle Button - Gen Z Style */
 .menu-toggle {
+  height: 48px;
+  width: 48px;
   display: none;
   position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 150;
-  background: #e15252;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  top: 20px;
+  left: 20px;
+  z-index: 200;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-purple));
+  border: 2px solid var(--accent-neon);
+  padding: 12px;
+  border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px var(--shadow-hover);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1) rotate(90deg);
+  box-shadow: 0 12px 32px var(--shadow-hover);
+  background: linear-gradient(135deg, var(--accent-neon), var(--accent-pink));
+}
+
+.menu-toggle:active {
+  transform: scale(0.95) rotate(90deg);
 }
 
 .menu-toggle span {
   display: block;
-  width: 25px;
+  width: 24px;
   height: 3px;
-  background: #000;
-  margin: 5px 0;
-  transition: 0.3s;
+  background: #ffffff;
+  margin: 4px 0;
+  transition: 0.4s;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Nav Icon Button Style */
+.nav-icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon-button:hover {
+  background: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.nav-icon-button:active {
+  transform: translateY(0);
+}
+
+.nav-icons {
+  font-size: 26px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.nav-icon-button:hover .nav-icons {
+  color: var(--accent-primary);
+  transform: scale(1.1);
+}
+
+.theme-toggle .nav-icons {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:active .nav-icons {
+  animation: rotateTheme 0.5s ease-out;
+}
+
+@keyframes rotateTheme {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 /* Tablet Styles (768px - 1024px) */
 @media (max-width: 1024px) {
   .sidebar {
-    width: 200px;
+    width: 240px;
   }
 
   .nav,
   .recommended,
   .products,
   footer {
-    margin-left: 200px;
+    margin-left: 240px;
   }
 
   .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
   }
 }
 
@@ -187,6 +477,7 @@ footer {
   .sidebar {
     transform: translateX(-100%);
     width: 280px;
+    background: #ffffff;
   }
 
   .sidebar.active {
@@ -201,7 +492,7 @@ footer {
   }
 
   .nav {
-    padding: 60px 15px 15px;
+    padding: 70px 15px 15px;
   }
 
   .nav input {
@@ -214,23 +505,23 @@ footer {
   }
 
   .btns {
-    padding: 8px 15px;
-    font-size: 14px;
-    margin: 5px;
+    padding: 10px 18px;
+    font-size: 13px;
+    margin: 4px;
   }
 
   .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
     padding: 15px 0;
   }
 
   .card {
-    padding: 15px;
+    padding: 20px;
   }
   
   footer {
-    padding: 15px;
+    padding: 20px;
   }
 }
 
@@ -238,11 +529,11 @@ footer {
 @media (max-width: 480px) {
   .sidebar {
     width: 100%;
-    max-width: 300px;
+    max-width: 320px;
   }
 
   .nav {
-    padding: 55px 10px 10px;
+    padding: 65px 10px 10px;
   }
 
   .recommended,
@@ -251,18 +542,18 @@ footer {
   }
 
   .card-container {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .btns {
-    padding: 6px 12px;
-    font-size: 13px;
+    padding: 8px 14px;
+    font-size: 12px;
     margin: 3px;
   }
 
   footer {
-    padding: 15px 10px;
+    padding: 20px 10px;
     font-size: 14px;
   }
 }
@@ -277,6 +568,7 @@ footer {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 90;
+  backdrop-filter: blur(4px);
 }
 
 .overlay.active {
