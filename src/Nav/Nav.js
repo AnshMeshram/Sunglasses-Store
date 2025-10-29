@@ -5,7 +5,7 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 import { MdShoppingCart } from "react-icons/md";
 import "./Nav.css";
 
-function Nav({ query, handleInputChange, cartCount = 0, theme, toggleTheme }) {
+function Nav({ query, handleInputChange, cartCount = 0, theme, toggleTheme, toggleCart }) {
   return (
     <div className="nav-container">
       <input
@@ -19,7 +19,11 @@ function Nav({ query, handleInputChange, cartCount = 0, theme, toggleTheme }) {
         <button className="nav-icon-button" aria-label="Favorites">
           <FaHeart className="nav-icons" />
         </button>
-        <button className="nav-icon-button cart-button" aria-label="Shopping Cart">
+        <button 
+          className="nav-icon-button cart-button" 
+          aria-label="Shopping Cart"
+          onClick={toggleCart}
+        >
           <MdShoppingCart className="nav-icons" />
           {cartCount > 0 && (
             <span className="cart-badge" role="status" aria-live="polite">
