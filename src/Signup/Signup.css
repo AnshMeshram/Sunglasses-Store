@@ -9,7 +9,7 @@
     min-height: 100vh;
     margin: 0;
     padding-top: 80px; /* Space for fixed navbar */
-    background: linear-gradient(135deg, #ffd4a3 0%, #ff9a8b 50%, #ff6a88 100%);
+    background-image: linear-gradient(to right, #fff7c8 0%, #ec2323 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +33,7 @@
 /* Header styling */
 .signupContainer h2 {
     font-size: 4rem;
-    color: rgb(12, 12, 12);
+    color: rgb(255, 255, 255);
     font-family: sans-serif;
     font-weight: bold;
     margin-bottom: 2rem;
