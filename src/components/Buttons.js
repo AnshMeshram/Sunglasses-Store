@@ -1,9 +1,9 @@
-
+import '../index.css';
 function buttons(handleClick) {
   return (
     <div>
     <h2 className="recomendedtitle">Recommended</h2>
-    <div className="Recommended-flex">
+    <div className="recommended-flex">
       <Buttons onClickHandler={handleClick}
       value=''
       title='All'/>
@@ -27,4 +27,4 @@ function buttons(handleClick) {
   )
 }
 
-export default buttons
+export default Buttons

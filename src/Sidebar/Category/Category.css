@@ -1,96 +1,113 @@
 /* Sidebar container */
 .sidebar-container {
-  width: 200px; /* Adjust width as needed */
-  padding: 20px;
-  background-color: #f79f7d; /* Background color for sidebar */
-  border-right: 1px #eeff00fa; /* Border to the right of sidebar */
-  border-radius: 10px; /* Rounded corners */
+    width: 100%;
+    padding: 20px 0;
+    background: transparent;
 }
 
 /* Title for the sidebar */
 .sidebar-title {
-  margin-left: 20px;
-  font-size: 18px;
-  font-weight: 980px;
-  margin-bottom: 10px;
-  color: #000000; /* Text color for the title */
+    margin-left: 0;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    padding: 0 20px;
 }
 
 /* Container for sidebar categories */
 .sidebar-categories {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
 }
 
 /* Label container styling */
 .sidebar-label-container {
-  font-size: 13px;
-  font-weight: bold;
-  display: flex;
-  margin-left: 20px;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  user-select: none; /* Disable text selection */
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 12px 12px 12px 48px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    color: #5a6c7d;
+}
+
+.sidebar-label-container:hover {
+    background: #ffffff;
+    color: #2c3e50;
+    transform: translateX(4px);
 }
 
 /* Hide the default radio button */
 .sidebar-label-container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
 }
 
 /* Custom radio button styling */
 .checkmark {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #e8c272;
-  border-radius: 50%;
-  transform: translateY(-50%); /* Center vertically */
-  transition: background-color 0.3s; /* Smooth transition for color change */
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    height: 20px;
+    width: 20px;
+    background-color: #e8edf3;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    border: 2px solid #d4dde6;
 }
 
 /* Hover effect */
-.sidebar-label-container:hover input ~ .checkmark {
-  background-color: #f48d8d;
+.sidebar-label-container:hover .checkmark {
+    background-color: #d4e9ff;
+    border-color: #3498db;
 }
 
 /* Checked state */
 .sidebar-label-container input:checked ~ .checkmark {
-  background-color: #ea5050;
+    background-color: #3498db;
+    border-color: #2980b9;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
 }
 
-/* Label text styling */
-.checkmark + span {
-  font-size: 16px;
-  color: #000000; /* Text color for the labels */
+.sidebar-label-container input:checked ~ span:not(.checkmark) {
+    color: #3498db;
+    font-weight: 600;
+}
+
+.sidebar-label-container input:checked ~ .sidebar-label-container {
+    background: #e8f4ff;
 }
 
 /* Checkmark inner circle */
 .checkmark::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 12px; /* Size of the inner circle */
-  height: 12px;
-  border-radius: 50%;
-  background: rgb(247, 217, 163); /* Color of the inner circle */
-  transform: translate(-50%, -50%); /* Center the inner circle */
-  display: none; /* Hide by default */
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffffff;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease;
 }
 
 /* Show the inner circle when checked */
 .sidebar-label-container input:checked ~ .checkmark::after {
-  display: block;
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.line{
-  margin-top: 3rem;
-  border-color: rgba(255, 255, 167, 0.989) ;
+.line {
+    margin: 24px 20px;
+    border: none;
+    border-top: 1px solid #e8edf3;
 }
