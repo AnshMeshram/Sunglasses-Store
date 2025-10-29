@@ -110,9 +110,11 @@
 }
 
 .nav-icons {
-    font-size: 26px;
-    color: var(--text-primary);
-    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-icon-button:hover .nav-icons {
@@ -141,6 +143,8 @@
 /* Cart button specific styles */
 .cart-button {
     position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .cart-badge {
@@ -150,44 +154,24 @@
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     color: white;
     border-radius: 50%;
-    min-width: 20px;
-    height: 20px;
-    font-size: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    padding: 0 5px;
-    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
-    animation: badgePop 0.3s ease-out;
-    z-index: 10;
+    padding: 2px 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 18px;
+    text-align: center;
+    animation: scaleIn 0.3s ease;
 }
 
-@keyframes badgePop {
+/* Animation for cart badge */
+@keyframes scaleIn {
     0% {
         transform: scale(0);
-        opacity: 0;
     }
     50% {
         transform: scale(1.2);
     }
     100% {
         transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.cart-badge[role="status"] {
-    animation: none;
-}
-
-/* Pulse animation for active cart */
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
-    }
-    50% {
-        box-shadow: 0 2px 16px rgba(231, 76, 60, 0.8);
     }
 }
 
@@ -287,6 +271,13 @@
     .profile-container {
         gap: 6px;
     }
+    
+    .cart-badge {
+        font-size: 0.7rem;
+        padding: 1px 5px;
+        min-width: 16px;
+    }
+}
 
     .nav-icon-button {
         padding: 6px 10px;

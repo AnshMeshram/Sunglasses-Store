@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
 import Sidebar from './Sidebar/Sidebar';
 import Nav from './Nav/Nav';
 import Products from './Products/Products';
@@ -257,69 +258,35 @@ function App() {
   const result = filteredData(data, selectedCategory, query, selectedPrice);
 
   return (
-    <div>
-      <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/" element={
-          <>
-            {/* Mobile Menu Toggle Button */}
-            <button 
-              className="menu-toggle" 
-              onClick={toggleSidebar}
-              aria-label="Toggle Menu"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
+    <CartProvider>
+      <div>
+        <Routes>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/" element={
+            <>
+              {/* Mobile Menu Toggle Button */}
+              <button 
+                className="menu-toggle" 
+                onClick={toggleSidebar}
+                aria-label="Toggle Menu"
+              >
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
 
-            {/* Overlay for mobile */}
-            <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
+              {/* Overlay for mobile */}
+              <Sidebar handleChange={handleChange} isOpen={isSidebarOpen} />
 
-            <Nav
-              query={query}
-              handleInputChange={handleInputChange}
-              cartCount={cart.reduce((total, item) => total + (item.quantity || 1), 0)}
-              theme={theme}
-              toggleTheme={toggleTheme}
-              toggleCart={toggleCart}
-            />
-            <Recommended handleClick={handleClick} />
-            <Products results={result} addToCart={addToCart} cartItems={cart} />
-            <Footer />
-            
-            <Cart
-              isOpen={isCartOpen}
-              onClose={closeCart}
-              cartItems={cart}
-              updateQuantity={updateQuantity}
-              removeFromCart={removeFromCart}
-              clearCart={clearCart}
-            />
-            
-            <Notification
-              message={notification.message}
-              type={notification.type}
-              isVisible={notification.isVisible}
-              onClose={hideNotification}
-            />
-            
-            <AddedToCartPopup
-              isVisible={addedToCartPopup.isVisible}
-              onClose={closeAddedToCartPopup}
-              productName={addedToCartPopup.product?.title}
-              productImage={addedToCartPopup.product?.images?.[0]?.src}
-              productPrice={parseFloat(addedToCartPopup.product?.newPrice || 0).toFixed(2)}
-              cartCount={cart.reduce((total, item) => total + (item.quantity || 1), 0)}
-              onViewCart={() => {
-                closeAddedToCartPopup();
-                toggleCart();
-              }}
-            />
-          </>
-        } />
-      </Routes>
-    </div>
+              <Nav query={query} handleInputChange={handleInputChange} />
+              <Recommended handleClick={handleClick} />
+              <Products results={result} />
+              <Footer />
+            </>
+          } />
+        </Routes>
+      </div>
+    </CartProvider>
   );
 }
 
